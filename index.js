@@ -9,7 +9,7 @@ app.use(cors());
 
 const server=http.createServer(app);
 
-const io=new Server(server,{cors:{origin:"http://localhost:3000",},maxHttpBufferSize:1e8,  });
+const io=new Server(server,{cors:{origin:"https://knight-chat.onrender.com",},maxHttpBufferSize:1e8,  });
 
 
 io.on('connection',(socket)=>{
@@ -27,7 +27,7 @@ socket.on("send_message",(msg)=>{
 });
 
 
-
+const port=process.env.PORT||3001;
 server.listen(3001,()=>{
-    console.log("SERVER IS RUNNING ON 3001");
+    console.log("SERVER IS RUNNING ON "+String(port));
 })
